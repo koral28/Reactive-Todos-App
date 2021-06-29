@@ -1,0 +1,38 @@
+<div class="home">
+  <h1>Todo App</h1>
+  <h2>by Koral Levi</h2>
+  <h3>07/06/21</h3>
+  <button [routerLink]="['/lists/1/edit']" mat-raised-button="accent">
+    create new list
+  </button>
+  <button [routerLink]="['/lists']" mat-raised-button="accent">
+    view all lists
+  </button>
+  <button [routerLink]="['/items']" mat-raised-button="accent">
+    view all items
+  </button>
+</div>
+
+<div class="total">
+  <div class="total-li">
+    <button style="background: none" mat-icon-button>
+      <mat-icon>list</mat-icon>
+    </button>
+    <h1>{{ numberOfLists$ | async }}</h1>
+    <h4>Lists</h4>
+  </div>
+  <div class="total-li">
+    <button mat-icon-button>
+      <mat-icon>done_all</mat-icon>
+    </button>
+    <h1>{{ countItems }}</h1>
+    <h4>Todo Items</h4>
+  </div>
+  <div class="total-li">
+    <button style="background: none" mat-icon-button>
+      <mat-icon>hourglass_empty</mat-icon>
+    </button>
+    <h1>{{ countActiveItems }}</h1>
+    <h4>Active Items</h4>
+  </div>
+</div>

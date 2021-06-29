@@ -1,0 +1,37 @@
+<span *ngIf="chosenList$">
+  <h4>Lists > {{ chosenList$.Caption }}</h4>
+  <div class="details">
+    <div class="icon">
+      <button [ngStyle]="{ color: chosenList$.Color }" mat-icon-button>
+        <mat-icon class="icon-large">{{ chosenList$.Icon }}</mat-icon>
+      </button>
+    </div>
+    <div class="btn">
+      <h3>{{ chosenList$.Description }}</h3>
+      <button [routerLink]="['/lists/1/edit']" mat-raised-button="accent">
+        New List...
+      </button>
+      <button (click)="EditList()" mat-raised-button="accent">Edit...</button>
+      <button (click)="DeleteList()" mat-raised-button="accent">Delete</button>
+    </div>
+  </div>
+
+  <div class="items">
+    <ul *ngFor="let item of chosenList$.Items">
+      <li [ngClass]="item.completed ? 'done' : ''">
+        <input
+          #checkBoxItem
+          (change)="change(item, checkBoxItem.value)"
+          [checked]="item.completed"
+          type="checkbox"
+        /><label>{{ item.item }}</label>
+      </li>
+    </ul>
+    <li>
+      <input class="item" type="checkbox" /><input #newItem type="text" />
+      <button (click)="addItem(newItem.value)" mat-icon-button>
+        <mat-icon class="add item">add</mat-icon>
+      </button>
+    </li>
+  </div>
+</span>

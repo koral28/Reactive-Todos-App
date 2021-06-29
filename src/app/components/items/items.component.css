@@ -1,0 +1,17 @@
+h4{
+    padding: 10px;
+    color: rgb(118, 118, 238);
+}
+
+ul{
+    margin: 15px;
+    margin-top: -15px;
+}
+
+li{
+    list-style: none;
+}
+
+label{
+    padding: 5px;
+}

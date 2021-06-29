@@ -1,0 +1,31 @@
+:host{
+    width: 40%;
+}
+h4{
+    padding: 10px;
+    color: rgb(118, 118, 238);
+}
+
+mat-icon{
+    font-size: 40px;
+    margin-right: 20px;
+}
+.icons{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.btn{
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: rgb(223, 224, 224);
+    border-radius: 20px;
+    width: 150px;
+}
+
+button :hover{
+    cursor: pointer;
+    color: rgb(6, 12, 15);
+}

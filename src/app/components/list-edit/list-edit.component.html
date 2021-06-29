@@ -1,0 +1,147 @@
+<div class="card">
+  <form
+    #userInput="ngForm"
+    class="container"
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmit(userInput.value)"
+  >
+    <mat-form-field>
+      <mat-label>Caption</mat-label>
+      <input matInput placeholder="Name" formControlName="Caption" matInput />
+    </mat-form-field>
+
+    <span
+      *ngIf="
+        (myForm.get('Caption')?.invalid && myForm.get('Caption')?.touched) ||
+        myForm.get('Caption')?.dirty
+      "
+    >
+      <span
+        *ngIf="myForm.get('Caption')?.invalid && myForm.get('Caption')?.touched"
+        >Caption Is Required</span
+      >
+    </span>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea
+        [ngClass]="{
+          invalid:
+            (myForm.get('Description')?.invalid &&
+              myForm.get('Description')?.touched) ||
+            myForm.get('Description')?.dirty
+        }"
+        formControlName="Description"
+        matInput
+      ></textarea>
+    </mat-form-field>
+    <span
+      *ngIf="
+        (myForm.get('Description')?.invalid &&
+          myForm.get('Description')?.touched) ||
+        myForm.get('Description')?.dirty
+      "
+    >
+      <span
+        *ngIf="
+          myForm.get('Description')?.invalid &&
+          myForm.get('Description')?.touched
+        "
+      >
+        Description must contains at least 10 characters
+      </span>
+      <div
+        *ngIf="
+          myForm.get('Description')?.invalid &&
+          myForm.get('Description')?.touched
+        "
+      >
+        Description must contains at least 3 words
+      </div>
+    </span>
+    <mat-form-field>
+      <mat-label>Icons</mat-label>
+      <mat-select
+        [ngClass]="{
+          invalid:
+            (myForm.get('Icon')?.invalid && myForm.get('Icon')?.touched) ||
+            myForm.get('Icon')?.dirty
+        }"
+        formControlName="Icon"
+      >
+        <mat-select-trigger>
+          <span *ngFor="let i of icons">
+            <span *ngIf="userInput.value.Icon === i">
+              <mat-icon>{{ i }}</mat-icon>
+            </span>
+          </span>
+        </mat-select-trigger>
+
+        <div *ngFor="let i of icons">
+          <mat-option value="{{ i }}"
+            ><mat-icon>{{ i }}</mat-icon></mat-option
+          >
+        </div>
+      </mat-select>
+    </mat-form-field>
+
+    <span
+      *ngIf="
+        (myForm.get('Icon')?.invalid && myForm.get('Icon')?.touched) ||
+        myForm.get('Icon')?.dirty
+      "
+    >
+      <div>
+        <span *ngIf="myForm.get('Icon')?.invalid && myForm.get('Icon')?.touched"
+          >Icon Is Required</span
+        >
+      </div>
+    </span>
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <mat-select
+        [ngClass]="{
+          invalid:
+            (myForm.get('Color')?.invalid && myForm.get('Color')?.touched) ||
+            myForm.get('Color')?.dirty
+        }"
+        formControlName="Color"
+      >
+        <mat-option
+          [ngStyle]="{ color: i }"
+          *ngFor="let i of colors"
+          value="{{ i }}"
+        >
+          {{ i }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span
+      *ngIf="
+        (myForm.get('Color')?.invalid && myForm.get('Color')?.touched) ||
+        myForm.get('Color')?.dirty
+      "
+    >
+      <div>
+        <span
+          *ngIf="myForm.get('Color')?.invalid && myForm.get('Color')?.touched"
+          >Color Is Required</span
+        >
+      </div>
+    </span>
+    <div class="form-row">
+      <button
+        [disabled]="
+          myForm.get('Color')?.invalid ||
+          myForm.get('Description')?.invalid ||
+          myForm.get('Caption')?.invalid ||
+          myForm.get('Icon')?.invalid
+        "
+        type="submit"
+        mat-raised-button
+      >
+        save
+      </button>
+    </div>
+  </form>
+</div>

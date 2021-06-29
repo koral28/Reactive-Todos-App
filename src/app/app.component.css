@@ -1,0 +1,30 @@
+:host {
+    display: grid;
+    grid-template-rows: 50px 30px 0px 1fr;
+}
+
+.title{
+    background-color: rgb(8, 106, 139);
+    text-align: center;
+    padding: 7px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+.linkes{
+    background-color: rgb(209, 233, 243);
+    display: flex;
+}
+
+.link{
+    padding: 5px;
+    cursor: pointer;
+}
+
+.link:hover  {
+    background-color: rgb(33, 33, 97);
+    color: white;
+}
