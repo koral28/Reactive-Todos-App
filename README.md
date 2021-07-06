@@ -10,11 +10,20 @@ Goals:
 ● Working with models and statefull services
 
 ● Using the router to navigate between pages
+
 ● Using router guards
+
 ● Using core, routing modules to better structure our application
+
 ● Using Reactive Forms and validation to edit objects
+
 ● Using Some advanced CSS layout
+
 ● Building Components to consume the services
+
 ● Using @Input and @Output in components
+
 ● Using CSS variables to reuse colors in our application
+
 ● Using an external package: material-icons to present cool icons
+
