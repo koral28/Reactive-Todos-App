@@ -8,6 +8,7 @@ as completed.
 Goals:
 
 ● Working with models and statefull services
+
 ● Using the router to navigate between pages
 ● Using router guards
 ● Using core, routing modules to better structure our application
